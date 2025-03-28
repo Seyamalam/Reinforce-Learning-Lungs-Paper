@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="354pt" height="666pt" viewBox="0.00 0.00 354.03 666.40">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 662.4)">
+<title>Workflow</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-662.4 350.03,-662.4 350.03,4 -4,4"/>
+<!-- Data -->
+<g id="node1" class="node">
+<title>Data</title>
+<polygon fill="lightblue" stroke="black" points="292.39,-658.4 133.66,-658.4 133.66,-621.6 292.39,-621.6 292.39,-658.4"/>
+<text text-anchor="middle" x="213.03" y="-643.6" font-family="Arial" font-size="12.00">Dataset</text>
+<text text-anchor="middle" x="213.03" y="-629.2" font-family="Arial" font-size="12.00">(Lung Cancer Dataset.csv)</text>
+</g>
+<!-- EDA -->
+<g id="node2" class="node">
+<title>EDA</title>
+<polygon fill="lightgreen" stroke="black" points="289.72,-584.6 136.33,-584.6 136.33,-547.8 289.72,-547.8 289.72,-584.6"/>
+<text text-anchor="middle" x="213.03" y="-569.8" font-family="Arial" font-size="12.00">Exploratory Data Analysis</text>
+<text text-anchor="middle" x="213.03" y="-555.4" font-family="Arial" font-size="12.00">(Distribution, Correlation)</text>
+</g>
+<!-- Data&#45;&gt;EDA -->
+<g id="edge1" class="edge">
+<title>Data-&gt;EDA</title>
+<path fill="none" stroke="black" d="M213.03,-621.25C213.03,-613.69 213.03,-604.66 213.03,-596.18"/>
+<polygon fill="black" stroke="black" points="216.53,-596.26 213.03,-586.26 209.53,-596.26 216.53,-596.26"/>
+</g>
+<!-- Preproc -->
+<g id="node3" class="node">
+<title>Preproc</title>
+<polygon fill="lightyellow" stroke="black" points="300.07,-510.8 125.98,-510.8 125.98,-459.6 300.07,-459.6 300.07,-510.8"/>
+<text text-anchor="middle" x="213.03" y="-496" font-family="Arial" font-size="12.00">Data Preprocessing</text>
+<text text-anchor="middle" x="213.03" y="-481.6" font-family="Arial" font-size="12.00">(Encoding, Feature Selection,</text>
+<text text-anchor="middle" x="213.03" y="-467.2" font-family="Arial" font-size="12.00">Train/Test Split 75/25)</text>
+</g>
+<!-- EDA&#45;&gt;Preproc -->
+<g id="edge2" class="edge">
+<title>EDA-&gt;Preproc</title>
+<path fill="none" stroke="black" d="M213.03,-547.67C213.03,-540.21 213.03,-531.22 213.03,-522.44"/>
+<polygon fill="black" stroke="black" points="216.53,-522.69 213.03,-512.69 209.53,-522.69 216.53,-522.69"/>
+</g>
+<!-- XGBoost -->
+<g id="node4" class="node">
+<title>XGBoost</title>
+<polygon fill="lightcoral" stroke="black" points="244.71,-406.8 47.34,-406.8 47.34,-355.6 244.71,-355.6 244.71,-406.8"/>
+<text text-anchor="middle" x="146.03" y="-392" font-family="Arial" font-size="12.00">Train Supervised Model</text>
+<text text-anchor="middle" x="146.03" y="-377.6" font-family="Arial" font-size="12.00">(XGBoost Classifier - Risk Oracle)</text>
+<text text-anchor="middle" x="146.03" y="-363.2" font-family="Arial" font-size="12.00">Scale Pos Weight = 1.45</text>
+</g>
+<!-- Preproc&#45;&gt;XGBoost -->
+<g id="edge3" class="edge">
+<title>Preproc-&gt;XGBoost</title>
+<path fill="none" stroke="black" d="M196.64,-459.25C188.2,-446.41 177.79,-430.55 168.6,-416.57"/>
+<polygon fill="black" stroke="black" points="171.73,-414.95 163.31,-408.51 165.88,-418.79 171.73,-414.95"/>
+<text text-anchor="middle" x="222.61" y="-429" font-family="Times,serif" font-size="14.00">Training Data</text>
+</g>
+<!-- EvalRisk -->
+<g id="node5" class="node">
+<title>EvalRisk</title>
+<polygon fill="lightsalmon" stroke="black" points="346.03,-295.6 190.02,-295.6 190.02,-258.8 346.03,-258.8 346.03,-295.6"/>
+<text text-anchor="middle" x="268.03" y="-280.8" font-family="Arial" font-size="12.00">Evaluate Risk Model</text>
+<text text-anchor="middle" x="268.03" y="-266.4" font-family="Arial" font-size="12.00">(Accuracy, ROC AUC, F1)</text>
+</g>
+<!-- Preproc&#45;&gt;EvalRisk -->
+<g id="edge4" class="edge">
+<title>Preproc-&gt;EvalRisk</title>
+<path fill="none" stroke="black" d="M252.69,-459.22C258.06,-454.07 262.82,-448.18 266.03,-441.6 287.02,-398.47 281.16,-341.04 274.75,-307.01"/>
+<polygon fill="black" stroke="black" points="278.24,-306.59 272.81,-297.49 271.38,-307.99 278.24,-306.59"/>
+<text text-anchor="middle" x="307.71" y="-377" font-family="Times,serif" font-size="14.00">Test Data</text>
+</g>
+<!-- XGBoost&#45;&gt;EvalRisk -->
+<g id="edge5" class="edge">
+<title>XGBoost-&gt;EvalRisk</title>
+<path fill="none" stroke="black" d="M218.53,-355.24C227.1,-350.29 235.21,-344.45 242.03,-337.6 250.45,-329.13 256.36,-317.47 260.39,-306.73"/>
+<polygon fill="black" stroke="black" points="263.64,-308.06 263.46,-297.47 256.99,-305.86 263.64,-308.06"/>
+</g>
+<!-- MDP -->
+<g id="node6" class="node">
+<title>MDP</title>
+<polygon fill="lightcyan" stroke="black" points="150.06,-302.8 10,-302.8 10,-251.6 150.06,-251.6 150.06,-302.8"/>
+<text text-anchor="middle" x="80.03" y="-288" font-family="Arial" font-size="12.00">Define RL Environment</text>
+<text text-anchor="middle" x="80.03" y="-273.6" font-family="Arial" font-size="12.00">(MDP: States, Actions,</text>
+<text text-anchor="middle" x="80.03" y="-259.2" font-family="Arial" font-size="12.00">Transitions, Rewards)</text>
+</g>
+<!-- XGBoost&#45;&gt;MDP -->
+<g id="edge6" class="edge">
+<title>XGBoost-&gt;MDP</title>
+<path fill="none" stroke="black" d="M95.62,-355.27C89.62,-350.24 84.32,-344.37 80.6,-337.6 76.8,-330.67 75.23,-322.58 74.88,-314.63"/>
+<polygon fill="black" stroke="black" points="78.38,-314.83 75.11,-304.75 71.38,-314.67 78.38,-314.83"/>
+<text text-anchor="middle" x="161.31" y="-325" font-family="Times,serif" font-size="14.00">Risk Oracle P(Disease|State)</text>
+</g>
+<!-- QLearn -->
+<g id="node7" class="node">
+<title>QLearn</title>
+<polygon fill="lightpink" stroke="black" points="146.39,-214.6 13.66,-214.6 13.66,-163.4 146.39,-163.4 146.39,-214.6"/>
+<text text-anchor="middle" x="80.03" y="-199.8" font-family="Arial" font-size="12.00">Train RL Agent</text>
+<text text-anchor="middle" x="80.03" y="-185.4" font-family="Arial" font-size="12.00">(Q-Learning)</text>
+<text text-anchor="middle" x="80.03" y="-171" font-family="Arial" font-size="12.00">α=0.1, γ=0.9, ε-decay</text>
+</g>
+<!-- MDP&#45;&gt;QLearn -->
+<g id="edge7" class="edge">
+<title>MDP-&gt;QLearn</title>
+<path fill="none" stroke="black" d="M80.03,-251.27C80.03,-243.49 80.03,-234.76 80.03,-226.37"/>
+<polygon fill="black" stroke="black" points="83.53,-226.39 80.03,-216.39 76.53,-226.39 83.53,-226.39"/>
+</g>
+<!-- Policy -->
+<g id="node8" class="node">
+<title>Policy</title>
+<polygon fill="lightgray" stroke="black" points="146.71,-110.6 13.34,-110.6 13.34,-73.8 146.71,-73.8 146.71,-110.6"/>
+<text text-anchor="middle" x="80.03" y="-95.8" font-family="Arial" font-size="12.00">Extract Optimal Policy</text>
+<text text-anchor="middle" x="80.03" y="-81.4" font-family="Arial" font-size="12.00">(π*)</text>
+</g>
+<!-- QLearn&#45;&gt;Policy -->
+<g id="edge8" class="edge">
+<title>QLearn-&gt;Policy</title>
+<path fill="none" stroke="black" d="M80.03,-163.09C80.03,-150.58 80.03,-135.34 80.03,-122.28"/>
+<polygon fill="black" stroke="black" points="83.53,-122.57 80.03,-112.57 76.53,-122.57 83.53,-122.57"/>
+<text text-anchor="middle" x="135.81" y="-132.8" font-family="Times,serif" font-size="14.00">Converged Q-Table</text>
+</g>
+<!-- EvalPolicy -->
+<g id="node9" class="node">
+<title>EvalPolicy</title>
+<polygon fill="gold" stroke="black" points="160.05,-36.8 0,-36.8 0,0 160.05,0 160.05,-36.8"/>
+<text text-anchor="middle" x="80.03" y="-22" font-family="Arial" font-size="12.00">Evaluate Policy</text>
+<text text-anchor="middle" x="80.03" y="-7.6" font-family="Arial" font-size="12.00">(Risk Reduction, Heatmap)</text>
+</g>
+<!-- Policy&#45;&gt;EvalPolicy -->
+<g id="edge9" class="edge">
+<title>Policy-&gt;EvalPolicy</title>
+<path fill="none" stroke="black" d="M80.03,-73.45C80.03,-65.89 80.03,-56.86 80.03,-48.38"/>
+<polygon fill="black" stroke="black" points="83.53,-48.46 80.03,-38.46 76.53,-48.46 83.53,-48.46"/>
+</g>
+</g>
+</svg>
